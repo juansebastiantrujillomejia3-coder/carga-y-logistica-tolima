@@ -7,9 +7,14 @@
     <title>Consultar Envío | Sistema Logístico</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html{
+    font-size: 18px;
+}
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
             background: #f0f4f8;
             min-height: 100vh;
             display: flex;
@@ -25,14 +30,14 @@
 
         /* --- Header --- */
         .header {
-            background: linear-gradient(135deg, #1a3c5e 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #ffaa00 0%, #ffaa00 100%);
             border-radius: 12px 12px 0 0;
             padding: 28px 32px;
             color: #fff;
         }
 
         .header h1 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 4px;
         }
@@ -70,12 +75,12 @@
 
         .search-form input:focus {
             outline: none;
-            border-color: #2563eb;
+            border-color: #ffa600;
         }
 
         .search-form button {
             padding: 12px 28px;
-            background: #2563eb;
+            background: #ffbb00;
             color: #fff;
             border: none;
             border-radius: 8px;
@@ -86,7 +91,7 @@
             white-space: nowrap;
         }
 
-        .search-form button:hover  { background: #1d4ed8; }
+        .search-form button:hover  { background: #ffcc00; }
         .search-form button:active { transform: scale(0.98); }
         .search-form button:disabled { background: #94a3b8; cursor: not-allowed; }
 
@@ -117,7 +122,7 @@
         }
 
         .guia-badge {
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #1a3c5e;
             letter-spacing: 2px;
@@ -133,7 +138,7 @@
         }
 
         .estado-pendiente   { background: #fef3c7; color: #b45309; }
-        .estado-en_transito { background: #dbeafe; color: #1d4ed8; }
+        .estado-en_transito { background: #dbeafe; color: #d8871d; }
         .estado-entregado   { background: #dcfce7; color: #15803d; }
         .estado-devuelto    { background: #fce7f3; color: #9d174d; }
         .estado-cancelado   { background: #f1f5f9; color: #475569; }
@@ -155,13 +160,13 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #64748b;
+            color: #ffaa00;
             margin-bottom: 4px;
         }
 
         .info-item span {
-            font-size: 0.95rem;
-            color: #1e293b;
+            font-size: 1.2rem;
+            color: #ff8c00;
             font-weight: 500;
         }
 
