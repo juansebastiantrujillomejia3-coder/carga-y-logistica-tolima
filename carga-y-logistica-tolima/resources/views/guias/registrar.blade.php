@@ -40,6 +40,15 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.3);
         }
 
+        .field-hint {
+            font-size: 0.8rem;
+            color: var(--rojo);
+            display: none;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+        .field-hint.show { display: block; }
+
         .header-inner {
             max-width: 1100px;
             margin: 0 auto;
@@ -79,6 +88,46 @@
             gap: 10px;
         }
 
+        /* ── NAV ── */
+        .header-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 0 20px;
+            color: #aaa;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .nav-link:hover {
+            color: white;
+            background: rgba(255,255,255,0.05);
+            border-bottom-color: var(--naranja);
+        }
+
+        .nav-link.active {
+            color: var(--naranja);
+            border-bottom-color: var(--naranja);
+        }
+
+        @media (max-width: 700px) {
+        .header-nav { display: none; } /* opcional: ocultar en móvil */
+        }
+
+
         .header-title span {
             color: var(--naranja);
             font-family: 'Barlow Condensed', sans-serif;
@@ -116,7 +165,7 @@
 
         .hero h1 {
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 2.2rem;
+            font-size: 3rem;
             font-weight: 800;
             color: white;
             line-height: 1.1;
@@ -257,7 +306,7 @@
         .field { display: flex; flex-direction: column; gap: 6px; }
 
         .field label {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.8px;
@@ -275,7 +324,7 @@
             padding: 10px 14px;
             border: 2px solid var(--borde);
             border-radius: 8px;
-            font-size: 0.93rem;
+            font-size: 1.1rem;
             font-family: 'Barlow', sans-serif;
             color: var(--texto);
             transition: border-color 0.2s, box-shadow 0.2s;
@@ -348,16 +397,16 @@
         .estado-option.selected-good  { border-color: #2ecc71; background: #f0fff4; }
         .estado-option.selected-bad   { border-color: var(--rojo); background: #fff0ee; }
 
-        .estado-icon { font-size: 1.5rem; }
+        .estado-icon { font-size: 1.9rem; }
 
         .estado-label {
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: var(--texto);
         }
 
         .estado-sublabel {
-            font-size: 0.75rem;
+            font-size: 0.99rem;
             color: #999;
         }
 
@@ -386,7 +435,7 @@
         }
 
         .total-item-label {
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             color: #888;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -394,7 +443,7 @@
 
         .total-item-value {
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: white;
         }
@@ -404,7 +453,7 @@
         }
 
         .total-final-label {
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             color: var(--naranja);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -413,7 +462,7 @@
 
         .total-final-value {
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--naranja);
         }
@@ -569,30 +618,41 @@
         }
     </style>
 </head>
+
+
+
 <body>
 
     <!-- HEADER -->
-    <header class="header">
-        <div class="header-inner">
-            <div class="logo-band">
-                <!-- Logo inline SVG (camión estilizado) -->
-                <svg class="logo-icon" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="4" width="32" height="8" rx="4" fill="white" opacity="0.9"/>
-                    <rect x="4" y="16" width="28" height="8" rx="4" fill="white" opacity="0.9"/>
-                    <rect x="8" y="28" width="20" height="8" rx="4" fill="white" opacity="0.7"/>
-                    <rect x="36" y="4" width="22" height="10" rx="5" fill="white"/>
-                    <rect x="36" y="18" width="20" height="8" rx="4" fill="white"/>
-                    <circle cx="42" cy="34" r="5" fill="white"/>
-                    <circle cx="54" cy="34" r="5" fill="white"/>
-                </svg>
-                <span class="logo-text">carga y logistica tolima</span>
-            </div>
-            <div class="header-title">
-                <span>Sistema de Guías</span>
-                <span class="header-badge">SCRUM-6</span>
-            </div>
+<header class="header">
+    <div class="header-inner">
+        <div class="logo-band">
+            <svg class="logo-icon" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2"  y="4"  width="32" height="8"  rx="4" fill="white" opacity="0.9"/>
+                <rect x="4"  y="16" width="28" height="8"  rx="4" fill="white" opacity="0.9"/>
+                <rect x="8"  y="28" width="20" height="8"  rx="4" fill="white" opacity="0.7"/>
+                <rect x="36" y="4"  width="22" height="10" rx="5" fill="white"/>
+                <rect x="36" y="18" width="20" height="8"  rx="4" fill="white"/>
+                <circle cx="42" cy="34" r="5" fill="white"/>
+                <circle cx="54" cy="34" r="5" fill="white"/>
+            </svg>
+            <span class="logo-text">carga y logistica tolima</span>
         </div>
-    </header>
+        <div class="header-title">
+            <span>Sistema de Guías</span>
+        </div>
+
+        <!-- MENÚ DE NAVEGACIÓN -->
+        <nav class="header-nav">
+            <a href="/guias/registrar" class="nav-link {{ request()->is('guias/registrar') ? 'active' : '' }}">
+                ✏️ Registrar Guía
+            </a>
+            <a href="/envios/consultar" class="nav-link {{ request()->is('envios/consultar') ? 'active' : '' }}">
+                🔍 Consultar Envío
+            </a>
+        </nav>
+    </div>
+</header>
 
     <!-- HERO -->
     <div class="hero">
@@ -601,11 +661,7 @@
                 <h1>Registro de <span>Guía</span><br>de Envío</h1>
                 <p>Vincula una nueva guía a la planilla 23M&M correspondiente</p>
             </div>
-            <div class="hero-scrum">
-                <div class="scrum-id">SCRUM-6</div>
-                <div class="scrum-label">Historia de Usuario</div>
-                <div class="scrum-label">Sprint 1 · In Progress</div>
-            </div>
+            
         </div>
     </div>
 
@@ -635,13 +691,7 @@
                         <input type="text" id="numero_guia" placeholder="300004299741" maxlength="20" autocomplete="off"/>
                         <span class="field-error" id="err_numero_guia"></span>
                     </div>
-                    <div class="field">
-                        <label>Planilla 23M&M <span class="req">*</span></label>
-                        <select id="planilla_id">
-                            <option value="">Cargando planillas...</option>
-                        </select>
-                        <span class="field-error" id="err_planilla_id"></span>
-                    </div>
+                
                     <div class="field">
                         <label>Fecha de Admisión <span class="req">*</span></label>
                         <input type="datetime-local" id="fecha_admision"/>
@@ -902,6 +952,7 @@
         // ── Cargar planillas al iniciar (CA1) ──
         document.addEventListener('DOMContentLoaded', () => {
             cargarPlanillas();
+            inicializarValidaciones();
             // Fecha actual por defecto
             const now = new Date();
             const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
@@ -981,15 +1032,36 @@
 
         // ── Registrar guía ──
         async function registrarGuia() {
-            limpiarErrores();
-            const btn = document.getElementById('btnGuardar');
+    limpiarErrores();
+
+    // Validar campos
+    let hayErrores = false;
+    Object.entries(reglas).forEach(([id, regla]) => {
+        const input = document.getElementById(id);
+        if (!input || input.value.trim() === '') return;
+        const hint = document.getElementById('hint_' + id);
+        if (!regla.regex.test(input.value.trim())) {
+            if (hint) hint.classList.add('show');
+            input.classList.add('error');
+            hayErrores = true;
+        }
+    });
+
+    if (hayErrores) {
+        document.getElementById('alertErrorMsg').textContent = '⚠️ Corrija los campos marcados en rojo antes de continuar.';
+        document.getElementById('alertError').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
+
+    const btn = document.getElementById('btnGuardar');
             btn.disabled = true;
             btn.innerHTML = '<span class="spinner"></span> Registrando...';
 
             const estadoPaquete = document.querySelector('input[name="estado_paquete"]:checked')?.value ?? 'buen_estado';
 
             const payload = {
-                planilla_id:              parseInt(document.getElementById('planilla_id').value) || null,
+                planilla_id: 1,
                 numero_guia:              document.getElementById('numero_guia').value.trim().toUpperCase(),
                 fecha_admision:           document.getElementById('fecha_admision').value,
                 referencia:               document.getElementById('referencia').value.trim() || null,
@@ -1087,6 +1159,80 @@
         function getToken() {
             return localStorage.getItem('auth_token') ?? '';
         }
+
+        // ── Validaciones en tiempo real ──
+const reglas = {
+    // Solo letras y espacios
+    numero_guia: { regex: /^[0-9]+$/, msg: '⚠️ Solo se permiten números en el número de guía.' },
+    remitente_nombre:        { regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,-]+$/, msg: '⚠️ Solo se permiten letras en este campo.' },
+    destinatario_nombre:     { regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,-]+$/, msg: '⚠️ Solo se permiten letras en este campo.' },
+    descripcion_contenido:   { regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s.,-]+$/, msg: '⚠️ Solo letras, números y caracteres básicos.' },
+    novedad_descripcion:     { regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s.,-]+$/, msg: '⚠️ Solo letras, números y caracteres básicos.' },
+
+    // Solo letras y números (direcciones)
+    remitente_direccion:     { regex: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#.-]+$/, msg: '⚠️ Solo letras, números y # . - en direcciones.' },
+    destinatario_direccion:  { regex: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#.-]+$/, msg: '⚠️ Solo letras, números y # . - en direcciones.' },
+
+    // Solo letras para ciudades
+    remitente_ciudad:        { regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s-]+$/, msg: '⚠️ Solo se permiten letras en el nombre de la ciudad.' },
+    destinatario_ciudad:     { regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s-]+$/, msg: '⚠️ Solo se permiten letras en el nombre de la ciudad.' },
+
+    // Solo números para teléfonos
+    remitente_telefono:      { regex: /^[0-9]+$/, msg: '⚠️ Solo se permiten números en el teléfono.' },
+    destinatario_telefono:   { regex: /^[0-9]+$/, msg: '⚠️ Solo se permiten números en el teléfono.' },
+
+    // Solo números y guiones para cédula/NIT
+    remitente_cedula:        { regex: /^[0-9-]+$/, msg: '⚠️ Solo se permiten números y guiones en la cédula/NIT.' },
+    destinatario_cedula:     { regex: /^[0-9]+$/, msg: '⚠️ Solo se permiten números en la cédula.' },
+
+    // Solo números para código postal
+    remitente_codigo_postal:   { regex: /^[0-9]+$/, msg: '⚠️ Solo se permiten números en el código postal.' },
+    destinatario_codigo_postal:{ regex: /^[0-9]+$/, msg: '⚠️ Solo se permiten números en el código postal.' },
+
+    // Solo números para zona
+    destinatario_zona:       { regex: /^[0-9]+$/, msg: '⚠️ Solo se permiten números en la zona.' },
+
+    // Referencia alfanumérica
+    referencia:              { regex: /^[a-zA-Z0-9-]+$/, msg: '⚠️ Solo letras, números y guiones en la referencia.' },
+};
+
+// Agregar eventos a cada campo
+function inicializarValidaciones() {
+    Object.entries(reglas).forEach(([id, regla]) => {
+        const input = document.getElementById(id);
+        if (!input) return;
+
+        // Crear el aviso si no existe
+        let hint = document.getElementById('hint_' + id);
+        if (!hint) {
+            hint = document.createElement('span');
+            hint.id = 'hint_' + id;
+            hint.className = 'field-hint';
+            hint.textContent = regla.msg;
+            input.parentNode.appendChild(hint);
+        }
+
+        input.addEventListener('input', () => {
+            const val = input.value.trim();
+            if (val === '') {
+                hint.classList.remove('show');
+                input.classList.remove('error');
+                return;
+            }
+            if (!regla.regex.test(val)) {
+                hint.classList.add('show');
+                input.classList.add('error');
+            } else {
+                hint.classList.remove('show');
+                input.classList.remove('error');
+            }
+        });
+    });
+}
+
+
+
+        
     </script>
 </body>
 </html>

@@ -31,7 +31,7 @@ class GuiaController extends Controller
     {
         // CA2 - Validación de todos los campos obligatorios
         $validated = $request->validate([
-            'planilla_id'              => ['required', 'integer', 'exists:planillas,id'],
+            'planilla_id' => ['required', 'integer', 'exists:planilla,id_planilla'],
             'numero_guia'              => ['required', 'string', 'min:5', 'max:20', 'unique:guias,numero_guia'],
             'fecha_admision'           => ['required', 'date'],
             'referencia'               => ['nullable', 'string', 'max:50'],
@@ -95,7 +95,7 @@ class GuiaController extends Controller
         $guia = Guia::create([
             ...$validated,
             'total_fletes'  => $totalFletes,
-            'registrado_por' => $request->user()->id,
+            'registrado_por' => 1,
             'estado'        => 'registrada',
         ]);
 
